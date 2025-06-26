@@ -37,6 +37,9 @@ class UserSubmissionResponse(BaseModel):
     NextQuestionDifficulty: str
     Explanation: str
 
+@app.get("/")
+def root():
+    return {"message": "FastAPI AI Interview Server is running."}
 
 @app.post("/submit", response_model=UserSubmissionResponse)
 def submit_user_submission(data: UserSubmission):
